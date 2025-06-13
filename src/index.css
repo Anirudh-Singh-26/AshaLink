@@ -1,0 +1,424 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* AshaLink Medical Design System - Modern healthcare aesthetics */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 200 98% 39%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 200 98% 39%;
+
+    --radius: 0.75rem;
+
+    /* Medical theme colors */
+    --medical-primary: 200 98% 39%;
+    --medical-secondary: 156 72% 47%;
+    --medical-accent: 262 83% 58%;
+    --medical-success: 142 76% 36%;
+    --medical-warning: 38 92% 50%;
+    --medical-error: 0 84% 60%;
+    --medical-light: 210 20% 98%;
+    --medical-dark: 224 71% 4%;
+  }
+
+  .dark {
+    --background: 224 71.4% 4.1%;
+    --foreground: 210 20% 98%;
+
+    --card: 224 71.4% 4.1%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 224 71.4% 4.1%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 200 98% 39%;
+    --primary-foreground: 220.9 39.3% 11%;
+
+    --secondary: 215 27.9% 16.9%;
+    --secondary-foreground: 210 20% 98%;
+
+    --muted: 215 27.9% 16.9%;
+    --muted-foreground: 217.9 10.6% 64.9%;
+
+    --accent: 215 27.9% 16.9%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 215 27.9% 16.9%;
+    --input: 215 27.9% 16.9%;
+    --ring: 200 98% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased text-left;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    line-height: 1.6;
+  }
+
+  /* Typography consistency with proper alignment */
+  h1 {
+    @apply text-3xl font-bold tracking-tight lg:text-4xl text-foreground leading-tight text-left;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold tracking-tight lg:text-3xl text-foreground leading-tight text-left;
+  }
+
+  h3 {
+    @apply text-xl font-semibold tracking-tight lg:text-2xl text-foreground leading-tight text-left;
+  }
+
+  h4 {
+    @apply text-lg font-medium tracking-tight text-foreground leading-snug text-left;
+  }
+
+  h5 {
+    @apply text-base font-medium tracking-tight text-foreground leading-snug text-left;
+  }
+
+  h6 {
+    @apply text-sm font-medium tracking-tight text-foreground leading-snug text-left;
+  }
+
+  p {
+    @apply text-base leading-relaxed text-muted-foreground text-left;
+  }
+
+  /* Text utilities with proper alignment */
+  .text-large {
+    @apply text-lg leading-relaxed text-left;
+  }
+
+  .text-small {
+    @apply text-sm leading-normal text-left;
+  }
+
+  .text-muted {
+    @apply text-sm text-muted-foreground text-left;
+  }
+
+  .text-subtle {
+    @apply text-xs text-muted-foreground text-left;
+  }
+
+  /* Form elements alignment */
+  input, textarea, select {
+    @apply text-left;
+  }
+
+  label {
+    @apply text-left text-sm font-medium text-foreground;
+  }
+}
+
+/* Enhanced animations */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in {
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 0.4s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.2s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, 
+    hsl(var(--muted)) 25%, 
+    hsl(var(--muted-foreground) / 0.1) 50%, 
+    hsl(var(--muted)) 75%);
+  background-size: 200px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* Medical gradient backgrounds */
+.medical-gradient-primary {
+  background: linear-gradient(135deg, hsl(var(--medical-primary)) 0%, hsl(var(--medical-secondary)) 100%);
+}
+
+.medical-gradient-accent {
+  background: linear-gradient(135deg, hsl(var(--medical-accent)) 0%, hsl(var(--medical-primary)) 100%);
+}
+
+.medical-card-gradient {
+  background: linear-gradient(135deg, 
+    hsl(var(--card)) 0%, 
+    hsl(var(--medical-primary) / 0.05) 100%);
+}
+
+/* Glass morphism effect */
+.glass {
+  background: hsl(var(--background) / 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid hsl(var(--border) / 0.5);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, hsl(var(--primary)), hsl(var(--medical-secondary)));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, hsl(var(--primary) / 0.8), hsl(var(--medical-secondary) / 0.8));
+}
+
+/* Interactive elements with proper text alignment */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px hsl(var(--foreground) / 0.1);
+}
+
+/* Button animations with centered text for buttons only */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, hsl(var(--background) / 0.3), transparent);
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-shine:hover::before {
+  left: 100%;
+}
+
+/* Focus states for accessibility */
+.focus-ring:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+}
+
+/* Role-based styling */
+.role-patient {
+  --role-color: var(--medical-primary);
+}
+
+.role-doctor {
+  --role-color: var(--medical-secondary);
+}
+
+.role-admin {
+  --role-color: var(--medical-accent);
+}
+
+/* Loading states */
+.skeleton {
+  @apply animate-pulse bg-muted rounded;
+}
+
+.skeleton-text {
+  @apply h-4 bg-muted rounded animate-pulse;
+}
+
+/* Status indicators */
+.status-online {
+  background: linear-gradient(135deg, hsl(var(--medical-success)) 0%, hsl(var(--medical-secondary)) 100%);
+}
+
+.status-busy {
+  background: linear-gradient(135deg, hsl(var(--medical-warning)) 0%, hsl(var(--medical-error)) 100%);
+}
+
+.status-offline {
+  background: linear-gradient(135deg, hsl(var(--muted)) 0%, hsl(var(--muted-foreground)) 100%);
+}
+
+/* Flexbox alignment utilities */
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex items-center justify-between;
+}
+
+.flex-start {
+  @apply flex items-center justify-start;
+}
+
+.flex-end {
+  @apply flex items-center justify-end;
+}
+
+/* Navigation specific styles */
+.nav-button {
+  @apply flex flex-col md:flex-row items-center justify-center md:justify-start space-y-1 md:space-y-0 md:space-x-3;
+}
+
+.nav-button span {
+  @apply text-center md:text-left;
+}
+
+/* Card specific styles */
+.card-title {
+  @apply text-left;
+}
+
+.card-description {
+  @apply text-left;
+}
+
+.card-content {
+  @apply text-left;
+}
+
+/* Button text should be centered */
+button {
+  @apply text-center;
+}
+
+button span {
+  @apply text-center;
+}
+
+/* Notification and panel text alignment */
+.notification-content {
+  @apply text-left;
+}
+
+.panel-content {
+  @apply text-left;
+}
+
+/* Welcome section text alignment */
+.welcome-text {
+  @apply text-left;
+}
+
+/* Mobile responsive text alignment */
+@media (max-width: 768px) {
+  .nav-button span {
+    @apply text-center;
+  }
+  
+  .welcome-text {
+    @apply text-center;
+  }
+}
