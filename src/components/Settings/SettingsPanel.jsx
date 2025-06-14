@@ -33,7 +33,12 @@ const SettingsPanel = ({ isOpen, onClose }) => {
               </div>
               <h2 className="text-xl font-bold text-foreground">Settings</h2>
             </div>
-            <Button variant="ghost" size="sm" onClick={onClose} className="hover:bg-muted/50 rounded-full h-8 w-8 p-0">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={onClose}
+              className="hover:bg-muted/50 rounded-full h-8 w-8 p-0"
+            >
               <X className="h-4 w-4" />
             </Button>
           </div>
@@ -46,7 +51,9 @@ const SettingsPanel = ({ isOpen, onClose }) => {
                   <User className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="font-medium text-foreground text-sm">{user?.name}</p>
+                  <p className="font-medium text-foreground text-sm">
+                    {user?.name}
+                  </p>
                   <p className="text-xs text-muted-foreground">{user?.phone}</p>
                 </div>
               </div>
@@ -58,38 +65,59 @@ const SettingsPanel = ({ isOpen, onClose }) => {
                 <Bell className="h-4 w-4 mr-2 text-primary" />
                 Notifications
               </h3>
-              
+
               <div className="space-y-2">
                 <div className="flex items-center justify-between p-2 bg-muted/50 rounded-md">
                   <div>
-                    <p className="font-medium text-foreground text-sm">Push Notifications</p>
-                    <p className="text-xs text-muted-foreground">App notifications</p>
+                    <p className="font-medium text-foreground text-sm">
+                      Push Notifications
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      App notifications
+                    </p>
                   </div>
                   <Switch
                     checked={settings.notifications}
-                    onCheckedChange={(checked) => handleSettingChange('notifications', checked)}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange("notifications", checked)
+                    }
+                    className="bg-red-600"
                   />
                 </div>
 
                 <div className="flex items-center justify-between p-2 bg-muted/50 rounded-md">
                   <div>
-                    <p className="font-medium text-foreground text-sm">SMS Reminders</p>
-                    <p className="text-xs text-muted-foreground">Text reminders</p>
+                    <p className="font-medium text-foreground text-sm">
+                      SMS Reminders
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Text reminders
+                    </p>
                   </div>
                   <Switch
                     checked={settings.smsReminders}
-                    onCheckedChange={(checked) => handleSettingChange('smsReminders', checked)}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange("smsReminders", checked)
+                    }
+                    className="bg-red-600"
                   />
                 </div>
 
                 <div className="flex items-center justify-between p-2 bg-muted/50 rounded-md">
                   <div>
-                    <p className="font-medium text-foreground text-sm">Email Updates</p>
-                    <p className="text-xs text-muted-foreground">Weekly health tips</p>
+                    <p className="font-medium text-foreground text-sm">
+                      Email Updates
+                    </p>
+                    <p className="text-xs text-muted-foreground">
+                      Weekly health tips
+                    </p>
                   </div>
                   <Switch
                     checked={settings.emailUpdates}
-                    onCheckedChange={(checked) => handleSettingChange('emailUpdates', checked)}
+                    onCheckedChange={(checked) =>
+                      handleSettingChange("emailUpdates", checked)
+                    }
+                    className="bg-red-600"
                   />
                 </div>
               </div>
@@ -101,14 +129,20 @@ const SettingsPanel = ({ isOpen, onClose }) => {
                 <Lock className="h-4 w-4 mr-2 text-green-600" />
                 Security
               </h3>
-              
+
               <div className="space-y-2">
-                <Button variant="outline" className="w-full justify-start text-sm h-9">
+                <Button
+                  variant="outline"
+                  className="flex items-center justify-center w-full justify-start text-sm h-9"
+                >
                   <Lock className="h-3 w-3 mr-2" />
                   Change Password
                 </Button>
-                
-                <Button variant="outline" className="w-full justify-start text-sm h-9">
+
+                <Button
+                  variant="outline"
+                  className="flex items-center justify-center w-full justify-start text-sm h-9"
+                >
                   <Smartphone className="h-3 w-3 mr-2" />
                   Update Phone
                 </Button>
@@ -121,15 +155,20 @@ const SettingsPanel = ({ isOpen, onClose }) => {
                 <Globe className="h-4 w-4 mr-2 text-purple-600" />
                 Appearance
               </h3>
-              
+
               <div className="flex items-center justify-between p-2 bg-muted/50 rounded-md">
                 <div>
-                  <p className="font-medium text-foreground text-sm">Dark Mode</p>
-                  <p className="text-xs text-muted-foreground">Toggle dark theme</p>
+                  <p className="font-medium text-foreground text-sm">
+                    Dark Mode
+                  </p>
+                  <p className="text-xs text-muted-foreground">
+                    Toggle dark theme
+                  </p>
                 </div>
                 <Switch
                   checked={isDark}
                   onCheckedChange={toggleTheme}
+                  className="bg-red-600"
                 />
               </div>
             </div>
@@ -139,7 +178,7 @@ const SettingsPanel = ({ isOpen, onClose }) => {
               <Button
                 onClick={logout}
                 variant="outline"
-                className="w-full justify-start text-destructive border-destructive/30 hover:bg-destructive/10 hover:border-destructive/50 text-sm h-9"
+                className="flex items-center justify-center w-full justify-start text-destructive border-destructive/30 hover:bg-destructive/10 hover:border-destructive/50 text-sm h-9"
               >
                 <LogOut className="h-3 w-3 mr-2" />
                 Sign Out

@@ -133,12 +133,12 @@ const RemindersPanel = () => {
             Manage your health reminders
           </p>
         </div>
-        <Button 
+        <Button
           onClick={() => setShowAddForm(!showAddForm)}
-          className="bg-primary hover:bg-primary/90 text-sm"
+          className="flex items-center justify-center bg-primary/90 text-sm  "
           size="sm"
         >
-          <Plus className="h-3 w-3 mr-1" />
+          <Plus className="flex items-center justify-center h-3 w-3 mr-1" />
           Add Reminder
         </Button>
       </div>
@@ -159,59 +159,87 @@ const RemindersPanel = () => {
             <form onSubmit={handleAddReminder} className="space-y-3">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div className="space-y-1">
-                  <Label htmlFor="type" className="text-sm">Type</Label>
-                  <Select value={newReminder.type} onValueChange={(value) => setNewReminder({...newReminder, type: value})}>
+                  <Label htmlFor="type" className="text-sm">
+                    Type
+                  </Label>
+                  <Select
+                    value={newReminder.type}
+                    onValueChange={(value) =>
+                      setNewReminder({ ...newReminder, type: value })
+                    }
+                  >
                     <SelectTrigger className="h-9">
                       <SelectValue placeholder="Select type" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="medication">💊 Medication</SelectItem>
-                      <SelectItem value="appointment">🏥 Appointment</SelectItem>
+                      <SelectItem value="appointment">
+                        🏥 Appointment
+                      </SelectItem>
                       <SelectItem value="health">❤️ Health Check</SelectItem>
                       <SelectItem value="nutrition">🥗 Nutrition</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
                 <div className="space-y-1">
-                  <Label htmlFor="time" className="text-sm">Time</Label>
+                  <Label htmlFor="time" className="text-sm">
+                    Time
+                  </Label>
                   <Input
                     id="time"
                     type="time"
                     value={newReminder.time}
-                    onChange={(e) => setNewReminder({...newReminder, time: e.target.value})}
+                    onChange={(e) =>
+                      setNewReminder({ ...newReminder, time: e.target.value })
+                    }
                     required
                     className="h-9"
                   />
                 </div>
               </div>
-              
+
               <div className="space-y-1">
-                <Label htmlFor="title" className="text-sm">Title</Label>
+                <Label htmlFor="title" className="text-sm">
+                  Title
+                </Label>
                 <Input
                   id="title"
                   placeholder="e.g., Take Prenatal Vitamins"
                   value={newReminder.title}
-                  onChange={(e) => setNewReminder({...newReminder, title: e.target.value})}
+                  onChange={(e) =>
+                    setNewReminder({ ...newReminder, title: e.target.value })
+                  }
                   required
                   className="h-9"
                 />
               </div>
-              
+
               <div className="space-y-1">
-                <Label htmlFor="message" className="text-sm">Message</Label>
+                <Label htmlFor="message" className="text-sm">
+                  Message
+                </Label>
                 <Textarea
                   id="message"
                   placeholder="Reminder message"
                   value={newReminder.message}
-                  onChange={(e) => setNewReminder({...newReminder, message: e.target.value})}
+                  onChange={(e) =>
+                    setNewReminder({ ...newReminder, message: e.target.value })
+                  }
                   required
                   className="min-h-[60px] text-sm"
                 />
               </div>
-              
+
               <div className="space-y-1">
-                <Label htmlFor="frequency" className="text-sm">Frequency</Label>
-                <Select value={newReminder.frequency} onValueChange={(value) => setNewReminder({...newReminder, frequency: value})}>
+                <Label htmlFor="frequency" className="text-sm">
+                  Frequency
+                </Label>
+                <Select
+                  value={newReminder.frequency}
+                  onValueChange={(value) =>
+                    setNewReminder({ ...newReminder, frequency: value })
+                  }
+                >
                   <SelectTrigger className="h-9">
                     <SelectValue />
                   </SelectTrigger>
@@ -222,12 +250,20 @@ const RemindersPanel = () => {
                   </SelectContent>
                 </Select>
               </div>
-              
+
               <div className="flex flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-2">
-                <Button type="submit" className="bg-primary hover:bg-primary/90 text-sm h-9">
+                <Button
+                  type="submit"
+                  className="bg-primary hover:bg-primary/90 text-sm h-9"
+                >
                   Create Reminder
                 </Button>
-                <Button type="button" variant="outline" onClick={() => setShowAddForm(false)} className="text-sm h-9">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={() => setShowAddForm(false)}
+                  className="text-sm h-9"
+                >
                   Cancel
                 </Button>
               </div>
@@ -243,11 +279,19 @@ const RemindersPanel = () => {
             <CardContent className="p-3 md:p-4">
               <div className="flex items-start justify-between space-x-3">
                 <div className="flex items-start space-x-3 flex-1 min-w-0">
-                  <div className="text-lg flex-shrink-0">{getTypeIcon(reminder.type)}</div>
+                  <div className="text-lg flex-shrink-0">
+                    {getTypeIcon(reminder.type)}
+                  </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-col space-y-1 md:flex-row md:items-center md:space-y-0 md:space-x-2 mb-1">
-                      <h3 className="font-medium text-sm truncate">{reminder.title}</h3>
-                      <Badge className={`${getTypeColor(reminder.type)} text-xs w-fit`}>
+                      <h3 className="font-medium text-sm truncate">
+                        {reminder.title}
+                      </h3>
+                      <Badge
+                        className={`${getTypeColor(
+                          reminder.type
+                        )} text-xs w-fit`}
+                      >
                         {reminder.type}
                       </Badge>
                     </div>
@@ -267,9 +311,11 @@ const RemindersPanel = () => {
                   </div>
                 </div>
                 <div className="flex flex-col space-y-2 md:flex-row md:items-center md:space-y-0 md:space-x-2 flex-shrink-0">
-                  <Badge 
-                    variant={reminder.status === 'active' ? 'default' : 'secondary'}
-                    className="text-xs w-fit"
+                  <Badge
+                    variant={
+                      reminder.status === "active" ? "default" : "secondary"
+                    }
+                    className=" text-xs w-fit p-2 "
                   >
                     {reminder.status}
                   </Badge>
@@ -277,9 +323,9 @@ const RemindersPanel = () => {
                     variant="outline"
                     size="sm"
                     onClick={() => toggleReminder(reminder.id)}
-                    className="h-7 text-xs px-2"
+                    className=" flex items-center justify-center h-7 text-xs px-2"
                   >
-                    {reminder.status === 'active' ? (
+                    {reminder.status === "active" ? (
                       <>
                         <Pause className="h-3 w-3 mr-1" />
                         Pause

@@ -37,7 +37,9 @@ const Dashboard = () => {
       {/* Welcome Section */}
       <div className="medical-gradient-primary rounded-2xl p-6 text-white">
         <div className="welcome-text">
-          <h2 className="text-2xl font-bold mb-2 text-white text-left">Welcome back, {user?.name}! 👋</h2>
+          <h2 className="text-2xl font-bold mb-2 text-white text-left">
+            Welcome back, {user?.name}! 👋
+          </h2>
           <p className="opacity-90 text-white text-left">
             You're doing great! Here's your pregnancy journey overview.
           </p>
@@ -84,7 +86,10 @@ const Dashboard = () => {
               <div className="text-xs text-muted-foreground mb-2">
                 Target: {metric.target}
               </div>
-              <Badge variant="secondary" className="bg-green-100 text-green-800">
+              <Badge
+                variant="secondary"
+                className="bg-green-100 text-green-800"
+              >
                 ✓ Normal
               </Badge>
             </CardContent>
@@ -96,21 +101,26 @@ const Dashboard = () => {
       <Card>
         <CardHeader>
           <CardTitle>Upcoming Appointments</CardTitle>
-          <CardDescription>
-            Don't miss these important checkups
-          </CardDescription>
+          <CardDescription>Don't miss these important checkups</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="space-y-3">
             {upcomingAppointments.map((appointment, index) => (
-              <div key={index} className="flex items-center justify-between p-3 bg-muted/50 rounded-lg">
+              <div
+                key={index}
+                className="flex items-center justify-between p-3 bg-muted/50 rounded-lg"
+              >
                 <div className="text-left">
-                  <div className="font-medium text-foreground">{appointment.type}</div>
+                  <div className="font-medium text-foreground">
+                    {appointment.type}
+                  </div>
                   <div className="text-sm text-muted-foreground">
                     {appointment.date} at {appointment.time}
                   </div>
                 </div>
-                <Badge variant="outline">Scheduled</Badge>
+                <CardTitle>
+                  <i>Scheduled</i>
+                </CardTitle>
               </div>
             ))}
           </div>
@@ -127,13 +137,13 @@ const Dashboard = () => {
         </Card>
         <Card>
           <CardContent className="pt-6 text-center">
-            <div className="text-2xl font-bold text-secondary">8</div>
+            <div className="text-2xl font-bold text-primary">8</div>
             <div className="text-sm text-muted-foreground">Appointments</div>
           </CardContent>
         </Card>
         <Card>
           <CardContent className="pt-6 text-center">
-            <div className="text-2xl font-bold text-accent">15</div>
+            <div className="text-2xl font-bold text-primary">15</div>
             <div className="text-sm text-muted-foreground">Reminders Set</div>
           </CardContent>
         </Card>
